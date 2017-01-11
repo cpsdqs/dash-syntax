@@ -1,0 +1,15 @@
+{
+  "name": "dash-syntax",
+  "theme": "syntax",
+  "version": "0.0.1",
+  "description": "Vibrant dark syntax theme",
+  "keywords": [
+    "syntax",
+    "theme"
+  ],
+  "repository": "https://github.com/cpsdqs/dash-syntax",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.13.0 <2.0.0"
+  }
+}
