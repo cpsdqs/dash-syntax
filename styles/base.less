@@ -105,6 +105,14 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   &.syntax--modifier {
     color: @orange;
   }
+
+  &.syntax--annotation {
+    color: @yellow;
+  }
+
+  &.syntax--generic {
+    color: @indigo;
+  }
 }
 
 .syntax--constant {
@@ -379,37 +387,71 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
   }
 }
 
-.syntax--source.syntax--gfm {
-  .syntax--markup {
-    -webkit-font-smoothing: auto;
+.syntax--source {
+  &.syntax--gfm {
+    .syntax--markup {
+      -webkit-font-smoothing: auto;
 
-    &.syntax--heading {
-      color: @red;
+      &.syntax--heading {
+        color: @red;
 
-      .syntax--marker {
-        font-weight: normal;
-        color: darken(@red, 10%);
+        .syntax--marker {
+          font-weight: normal;
+          color: darken(@red, 10%);
+        }
+
+        &.syntax--heading-1 {
+          font-weight: bold;
+        }
+      }
+      &.syntax--link {
+        color: @indigo;
       }
 
-      &.syntax--heading-1 {
-        font-weight: bold;
+      &.syntax--raw {
+        color: @light-gray;
       }
     }
-    &.syntax--link {
-      color: @indigo;
+    .syntax--link {
+      .syntax--entity {
+        color: @blue;
+      }
     }
-
-    &.syntax--raw {
+    .syntax--quote {
+      font-style: normal;
+    }
+  }
+  .syntax--js {
+    &.syntax--dom {
+      font-style: italic;
+    }
+    &.syntax--math {}
+    &.syntax--yield {
+      .syntax--modifier {
+        color: @white; // colored looks silly
+      }
+    }
+  }
+  .syntax--rust {
+    &.syntax--type_params {
       color: @light-gray;
     }
   }
-  .syntax--link {
-    .syntax--entity {
-      color: @blue;
-    }
+}
+
+atom-text-editor.editor .syntax--rust {
+  // override tokamak styles
+
+  .syntax--meta.syntax--attribute {
+    color: @yellow;
+    font-style: italic;
   }
-  .syntax--quote {
-    font-style: normal;
+  .syntax--storage.syntax--modifier.syntax--lifetime,
+  .syntax--entity.syntax--name.syntax--lifetime {
+    color: @cyan;
+  }
+  .syntax--keyword.syntax--unsafe {
+    color: darken(@red, 20%);
   }
 }
 
