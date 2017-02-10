@@ -181,7 +181,6 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 .syntax--string {
   color: @string;
 
-
   .syntax--source.syntax--embedded {
     color: @text-color;
   }
@@ -198,9 +197,12 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     }
   }
 
-
   &.syntax--other.syntax--link {
     color: @purple;
+  }
+
+  &.syntax--math {
+    color: @cyan;
   }
 }
 
@@ -260,12 +262,16 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     color: @yellow;
   }
 
-  &.syntax--function  {
+  &.syntax--function {
     color: @blue;
 
     &.syntax--any-method {
       color: @indigo;
     }
+  }
+
+  &.syntax--type {
+    color: @blue;
   }
 }
 
@@ -400,6 +406,13 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
           color: darken(@red, 10%);
         }
 
+        &.syntax--heading-1, &.syntax--heading-2 {
+          text-shadow: 0 0.15ex 0 darken(@red, 30%);
+
+          .syntax--marker {
+            text-shadow: none;
+          }
+        }
         &.syntax--heading-1 {
           font-weight: bold;
         }
@@ -431,10 +444,30 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
         color: @white; // colored looks silly
       }
     }
+    // make HTML use normal text color
+    &.syntax--string.syntax--html {
+      color: @syntax-text-color;
+    }
   }
   .syntax--rust {
     &.syntax--type_params {
       color: @light-gray;
+    }
+  }
+  .syntax--less {
+    // make @import completely white
+    &.syntax--at-rule .syntax--punctuation {
+      color: inherit;
+    }
+  }
+  .syntax--css {
+    // stop making ids italic
+    .syntax--id {
+      font-style: normal;
+    }
+    // white property names
+    .syntax--support.syntax--type {
+      color: @white;
     }
   }
 }
