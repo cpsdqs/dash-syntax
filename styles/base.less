@@ -46,12 +46,15 @@ atom-text-editor {
   .cursor {
     color: @syntax-cursor-color;
     border-left-width: 2px;
-    transition: opacity .2s cubic-bezier(.2, .3, 0, 1);
   }
 
   .selection .region {
     background-color: @syntax-selection-color;
   }
+}
+
+.dash-cursor-animated atom-text-editor .cursor {
+  transition: opacity .2s cubic-bezier(.2, .3, 0, 1);
 }
 
 atom-text-editor .search-results .syntax--marker .region {

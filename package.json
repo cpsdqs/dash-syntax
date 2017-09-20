@@ -2,14 +2,25 @@
   "name": "dash-syntax",
   "theme": "syntax",
   "version": "0.3.0",
+  "main": "./lib/dash-syntax",
   "description": "Vibrant dark syntax theme",
   "keywords": [
     "syntax",
-    "theme"
+    "theme",
+    "dark"
   ],
   "repository": "https://github.com/cpsdqs/dash-syntax",
   "license": "MIT",
   "engines": {
     "atom": ">=1.13.0 <2.0.0"
+  },
+  "configSchema": {
+    "cursorAnimated": {
+      "title": "Smooth Cursor Blink",
+      "order": 1,
+      "description": "Makes the cursor fade smoothly instead of blinking. Disable this if you experience issues with font rendering.",
+      "type": "boolean",
+      "default": true
+    }
   }
 }
