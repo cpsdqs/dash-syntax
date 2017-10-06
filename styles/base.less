@@ -53,8 +53,14 @@ atom-text-editor {
   }
 }
 
-.dash-cursor-animated atom-text-editor .cursor {
-  transition: opacity .2s cubic-bezier(.2, .3, 0, 1);
+.dash-cursor-animated atom-text-editor {
+  .cursors {
+    // force it to be on a separate layer to prevent glitchy anti-aliasing
+    transform: translateZ(0);
+  }
+  .cursor {
+    transition: opacity .2s cubic-bezier(.2, .3, 0, 1);
+  }
 }
 
 atom-text-editor .search-results .syntax--marker .region {
